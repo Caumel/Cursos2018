@@ -1,4 +1,4 @@
-package com.example.cursos2018;
+package com.autentia.cursos2018;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
