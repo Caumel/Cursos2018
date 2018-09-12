@@ -1,16 +1,35 @@
-package com.autentia.cursos2018;
+package com.autentia.cursos2018.model;
 
-
-import java.util.ArrayList;
 import java.util.Objects;
 
-public class Course extends TransferObject {
+public class Course {
 
+    private int id;
     private Boolean active;
-    private ArrayList<String> teacher;
+    private int idTeacher;
     private String title;
     private int hours;
     private int level;
+
+    public Course(int id,Boolean active,int idTeacher, String title , int hours,int level){
+        this.id = id;
+        this.active = active;
+        this.idTeacher = idTeacher;
+        this.title = title;
+        this.hours = hours;
+        this.level = level;
+    }
+    public Course(){
+
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public Boolean getActive() {
         return active;
@@ -20,12 +39,12 @@ public class Course extends TransferObject {
         this.active = active;
     }
 
-    public ArrayList<String> getTeacher() {
-        return teacher;
+    public int getIdTeacher() {
+        return idTeacher;
     }
 
-    public void setTeacher(ArrayList<String> teacher) {
-        this.teacher = teacher;
+    public void setIdTeacher(int idTeacher) {
+        this.idTeacher = idTeacher;
     }
 
     public String getTitle() {
@@ -57,15 +76,16 @@ public class Course extends TransferObject {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Course course = (Course) o;
-        return hours == course.hours &&
+        return id == course.id &&
+                idTeacher == course.idTeacher &&
+                hours == course.hours &&
                 level == course.level &&
                 Objects.equals(active, course.active) &&
-                Objects.equals(teacher, course.teacher) &&
                 Objects.equals(title, course.title);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(active, teacher, title, hours, level);
+        return Objects.hash(id, active, idTeacher, title, hours, level);
     }
 }
