@@ -1,3 +1,5 @@
 target
 .idea
 *.iml
+my-project/node_modules
+my-project/src/node_modules
