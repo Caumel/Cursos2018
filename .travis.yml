@@ -6,7 +6,7 @@ cache:
     - "$HOME/.m2"
 
 before_cache:
-  - rm -rf $HOME/.m2/repository/com/richard
+  - rm -rf $HOME/.m2/repository/com/autentia  #Los dos primeros paquetes y para agilizarlo y no subir paquetes
 
 before_install:
  - wget https://github.com/codacy/codacy-coverage-reporter/releases/download/4.0.1/codacy-coverage-reporter-4.0.1-assembly.jar
