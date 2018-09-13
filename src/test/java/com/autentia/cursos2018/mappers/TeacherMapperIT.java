@@ -1,7 +1,7 @@
 package com.autentia.cursos2018.mappers;
 
-import com.autentia.cursos2018.model.Course;
 import com.autentia.cursos2018.model.Teacher;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +46,7 @@ public class TeacherMapperIT {
     }
 
     @Test
-    public void WhenIAskedForAllTheTeacherIHaveToReceiveAllTheTeacher() {
+    public void whenIAskedForAllTheTeacherIHaveToReceiveAllTheTeacher() {
         List<Teacher> allTeacher = new ArrayList<>();
         allTeacher.add(new Teacher(1,"Roberto Canales"));
         allTeacher.add(new Teacher(2, "Ruben Aguilera"));
