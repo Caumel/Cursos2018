@@ -19,7 +19,7 @@ public class CourseServiceTest {
     private CourseService sut = new CourseServiceImpl(courseMapper);
 
     @Test
-    public void getAll() {
+    public void ifIWantAllTheCoursesThisMethodHaveToCallGetAll() {
         List list = mock(List.class);   //Se crea un mock de una lista para compararla con el real
         doReturn(list).when(courseMapper).getAll();
 
@@ -30,7 +30,7 @@ public class CourseServiceTest {
     }
 
     @Test
-    public void getTeacher() {
+    public void ifIWantOneCourseThisMethodHaveToCallGetCourse() {
         Course coursemock = mock(Course.class);
         doReturn(coursemock).when(courseMapper).getCourse(1);
 
@@ -41,7 +41,7 @@ public class CourseServiceTest {
     }
 
     @Test
-    public void insertTeacher() {
+    public void ifIWantToInsertACourseThisMethodHaveToCallInsertCourse() {
         Course course = new Course(1,true,1,"TDD",5,1);
         sut.insertCourse(course);
 

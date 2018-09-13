@@ -1,18 +1,36 @@
 package com.autentia.cursos2018.controllers;
 
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.autentia.cursos2018.model.Course;
+import com.autentia.cursos2018.services.impl.CourseServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/courses")
 public class CourseController {
 
+    @Autowired
+    CourseServiceImpl courseService;
+
     // GET all
-    @GetMapping("/hola")
-    public String holaMundo(){
-        return "hola";
+    @GetMapping("/")
+    public List<Course> getAll() {
+        return courseService.getAll();
     }
-    // Nuevo curso
+    // Post
+    @PostMapping("/")
+    public Course insertCourse(@RequestBody Course course){
+        courseService.insertCourse(course);
+        return course;
+    }
+
+    //Get One
+    @GetMapping("/{id}")
+    public Course getCourse(@PathVariable int id){
+        return courseService.getCourse(id);
+    }
+
 }

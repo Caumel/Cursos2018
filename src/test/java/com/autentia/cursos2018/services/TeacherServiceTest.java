@@ -17,7 +17,7 @@ public class TeacherServiceTest {
     private TeacherService sut = new TeacherServiceImpl(teacherMapper);
 
     @Test
-    public void getAll() {
+    public void ifIWantAllTheTeacherThisMethodHaveToCallGetAll() {
         List list = mock(List.class);   //Se crea un mock de una lista para compararla con el real
         doReturn(list).when(teacherMapper).getAll();
 
@@ -28,7 +28,7 @@ public class TeacherServiceTest {
     }
 
     @Test
-    public void getTeacher() {
+    public void ifIWantOneTeacherThisMethodHaveToCallGetTeacher() {
         Teacher teachermock = mock(Teacher.class);
         doReturn(teachermock).when(teacherMapper).getTeacher(1);
 
@@ -39,7 +39,7 @@ public class TeacherServiceTest {
     }
 
     @Test
-    public void insertTeacher() {
+    public void ifIWantToInsertATeacherThisMethodHaveToCallInsertTeacher() {
         Teacher teacher = new Teacher(1,"Paco Pruebas");
         sut.insertTeacher(teacher);
 
