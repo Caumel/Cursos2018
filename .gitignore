@@ -1,4 +1,4 @@
 target
 .idea
 *.iml
-My-project/node_modules
+my-project/node_modules
