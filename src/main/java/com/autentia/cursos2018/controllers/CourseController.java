@@ -8,10 +8,12 @@ import com.autentia.cursos2018.services.impl.CourseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 @RestController
-@RequestMapping("/courses")
+@Path("/courses")
 public class CourseController {
 
     private CourseServiceImpl courseServiceImpl;
@@ -20,20 +22,22 @@ public class CourseController {
     public CourseController(CourseServiceImpl courseServiceImpl){this.courseServiceImpl = courseServiceImpl;}
 
     // GET all
-    @GetMapping("/")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
     public List<Course> getAll() {
         return courseServiceImpl.getAll();
     }
     // Post
-    @PostMapping("/")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
     public Course insertCourse(@RequestBody Course course){
         courseServiceImpl.insertCourse(course);
         return course;
     }
-
-    //Get One
-    @GetMapping("/{id}")
-    public Course getCourse(@PathVariable int id){
+    @GET
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Course getCourse(@PathParam("id") int id){
         return courseServiceImpl.getCourse(id);
     }
 
