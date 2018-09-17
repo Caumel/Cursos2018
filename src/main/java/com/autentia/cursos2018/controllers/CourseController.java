@@ -1,9 +1,7 @@
 package com.autentia.cursos2018.controllers;
 
 
-import com.autentia.cursos2018.mappers.CourseMapper;
 import com.autentia.cursos2018.model.Course;
-import com.autentia.cursos2018.services.CourseService;
 import com.autentia.cursos2018.services.impl.CourseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
