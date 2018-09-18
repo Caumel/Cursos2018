@@ -17,6 +17,6 @@ public interface CourseMapper {
     Course getCourse(int id);
 
 
-    @Select("SELECT id, active,idTeacher,title,hours,level from courses")
+    @Select("SELECT id, active,idTeacher,title,hours,level from courses WHERE active=TRUE")
     List<Course> getAll();
 }

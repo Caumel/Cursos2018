@@ -1,16 +1,18 @@
 <template>
   <div id="app">
-        <mainHtml/>
+    <Courses/>
+    <addCourse/>
   </div>
 </template>
 
 <script>
-import mainHtml from './components/mainHtml.vue'
-
+import addCourse from './components/addCourse/addCourse.vue'
+import Courses from './components/Courses/Courses.vue'
 export default {
   name: 'app',
   components: {
-    mainHtml
+    addCourse,
+    Courses
   }
 }
 </script>

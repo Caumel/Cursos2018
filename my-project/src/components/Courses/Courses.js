@@ -3,25 +3,32 @@ export default {
   data (){
       return {
           courses: [],
-          columnas:['id','title','level','hours'],
+          columns:['id','title','level','hours'],
           currentSort:'title',
           currentSortDir:'asc',
-          pageSize:5,
+          pageSize:4,
           currentPage:1,
-          points:['1','2','3']
+          //points:[],
+          pages: 0
       }
   },
   mounted () {
     axios
       .get('http://localhost:8080/courses')
-      .then(response => (this.courses = response.data))
+      .then(response => {
+        this.courses = response.data
+        if (this.courses.length % this.pageSize > 0) this.pages = Math.trunc(this.courses.length/this.pageSize)+1;
+        else this.pages = this.courses.length/this.pageSize;
+        //this.points = this.getPointsFromPageNumber(number);
+      }
+        
+        )
       .catch(e => {
         this.errors.push(e)
       })
   },
   methods:{
     sort:function(s) {
-      //if s == current sort, reverse
       if(s === this.currentSort) {
         this.currentSortDir = this.currentSortDir==='asc'?'desc':'asc';
       }
@@ -42,7 +49,14 @@ export default {
     },
     goTo:function(n) {
       this.currentPage = n
-    }
+    },
+    /*getPointsFromPageNumber(pageNumber){
+      const points = new Array();
+      for(let i = 0; i < pageNumber; i++){
+        points.push((i + 1).toString());
+      }
+      return points;
+    }*/
   },
     computed:{
       sortedCourses:function() {
@@ -60,3 +74,4 @@ export default {
       }
     }
   }
+  

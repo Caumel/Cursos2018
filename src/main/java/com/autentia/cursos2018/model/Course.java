@@ -85,6 +85,18 @@ public class Course {
     }
 
     @Override
+    public String toString() {
+        return "Course{" +
+                "id=" + id +
+                ", active=" + active +
+                ", idTeacher=" + idTeacher +
+                ", title='" + title + '\'' +
+                ", hours=" + hours +
+                ", level=" + level +
+                '}';
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(id, active, idTeacher, title, hours, level);
     }
