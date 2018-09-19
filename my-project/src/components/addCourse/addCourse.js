@@ -1,23 +1,40 @@
-
+import axios from 'axios';
 export default{
   data (){
       return {
+        teachers:[],
         errors:[],
         message: 'Soy el formulario!',
-        active: null,
-        idTeacher = null,
-        title = null,
-        hours = null,
-        level = null,
+        active: false,
+        idTeacher : null,
+        title : null,
+        hours : null,
+        level : null,
+        selected:''
       }
   },
-  methods(){
-    checkForm:function(e) {
-      if(this.active && this.title) return true;
-      this.errors = [];
-      if(!this.active) this.errors.push("Check required.");
-      if(!this.title) this.errors.push("Title required.");
-      e.preventDefault();
+  mounted () {
+    axios
+      .get('http://localhost:8080/teachers')
+      .then(response => this.teachers = response.data)
+      .catch(e => {
+        this.errors.push(e)
+      })
+  },
+  methods:{
+    postCourse:function(){
+      axios.post(`http://localhost:8080/courses`, {
+        id:1,
+        active:this.active,
+        idTeacher:this.selected,
+        title:this.title,
+        hours:this.hours,
+        level:this.level
+      })
+      .then(response => this.error = response.data)
+      .catch(e => {
+        this.errors.push(e)
+      })
     }
   }
 }

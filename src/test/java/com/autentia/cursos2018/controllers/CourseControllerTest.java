@@ -43,7 +43,7 @@ public class CourseControllerTest {
 
     @Test
     public void ifIWantToInsertACourseThisMethodHaveToCallInsertCourse() {
-        Course course = new Course(1,true,1,"TDD",5,1);
+        Course course = new Course(1,true,1,"TDD",5,"Básico");
         sut.insertCourse(course);
 
         verify(courseServiceImpl).insertCourse(course);

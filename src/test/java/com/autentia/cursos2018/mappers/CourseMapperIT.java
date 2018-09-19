@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 
@@ -27,8 +28,7 @@ public class CourseMapperIT {
 
     @Test
     public void whenInsertACourseThisHasToBeInsertedInDDBB() {
-        Course courseToInsert = new Course();
-        courseToInsert.setTitle("test");
+        Course courseToInsert = new Course(30,true,1,"test",5,"Básico");
 
         sut.insertCourse(courseToInsert);
 
@@ -38,7 +38,7 @@ public class CourseMapperIT {
 
     @Test
     public void whenReadACourseThisCourseHaveToBeTheOneThatIAsk() {
-        Course modelCourse = new Course(1,true,1,"TDD",5,1);
+        Course modelCourse = new Course(1,true,1,"TDD",5,"Básico");
 
         Course courseToRead = sut.getCourse(1);
 
@@ -48,9 +48,9 @@ public class CourseMapperIT {
     @Test
     public void WhenIAskedForAllTheCoursesIHaveToReceiveAllTheCourses() {
         List<Course> allCourses = new ArrayList<>();
-        allCourses.add(new Course(1,true,1,"TDD",5,1));
-        allCourses.add(new Course(2, true, 2,"Angular 1", 5, 1));
-        allCourses.add(new Course(3,true,2,"Angular 2",5,1));
+        allCourses.add(new Course(1,true,1,"TDD",5,"Básico"));
+        allCourses.add(new Course(2, true, 2,"Angular 1", 5, "Básico"));
+        allCourses.add(new Course(3,true,2,"Angular 2",5,"Básico"));
 
         List<Course> courses = sut.getAll();
 

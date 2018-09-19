@@ -9,9 +9,9 @@ public class Course {
     private int idTeacher;
     private String title;
     private int hours;
-    private int level;
+    private String level;
 
-    public Course(int id,Boolean active,int idTeacher, String title , int hours,int level){
+    public Course(int id,Boolean active,int idTeacher, String title , int hours,String level){
         this.id = id;
         this.active = active;
         this.idTeacher = idTeacher;
@@ -63,11 +63,11 @@ public class Course {
         this.hours = hours;
     }
 
-    public int getLevel() {
+    public String getLevel() {
         return level;
     }
 
-    public void setLevel(int level) {
+    public void setLevel(String level) {
         this.level = level;
     }
 
@@ -79,7 +79,7 @@ public class Course {
         return id == course.id &&
                 idTeacher == course.idTeacher &&
                 hours == course.hours &&
-                level == course.level &&
+                Objects.equals(level, course.level) &&
                 Objects.equals(active, course.active) &&
                 Objects.equals(title, course.title);
     }
