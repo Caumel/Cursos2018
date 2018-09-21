@@ -31,7 +31,7 @@
         <jacoco.itreportpath>${project.build.directory}/jacoco/it</jacoco.itreportpath>
         <jacoco.itreportfile>${jacoco.itreportpath}/jacoco-it.exec</jacoco.itreportfile>
 
-        <sonar.host.url>http://localhost:9000</sonar.host.url>
+        <sonar.host.url>http://sonarqube:9000</sonar.host.url>
         <sonar.sources>src/main</sonar.sources>
         <sonar.tests>src/test</sonar.tests>
         <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>

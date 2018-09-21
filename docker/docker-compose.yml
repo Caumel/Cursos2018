@@ -44,7 +44,7 @@ services:
       - "jenkins-data:/var/jenkins_home"
     depends_on:
       - sonarqube
-  
+
   mysql:
      image: mysql
      container_name: cursos-mysql
@@ -58,4 +58,4 @@ services:
      networks:
        - cursosnetwork
      environment:
-       MYSQL_ROOT_PASSWORD: root
+       MYSQL_ROOT_PASSWORD: pass
