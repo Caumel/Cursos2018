@@ -9,3 +9,4 @@ WORKDIR /var/jar
 
 
 ENTRYPOINT ["java", "-jar", "cursos2018.jar"]
+rm cursos2018.jar
