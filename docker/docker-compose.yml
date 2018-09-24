@@ -60,8 +60,7 @@ services:
      networks:
        - cursosnetwork
      environment:
-      - MYSQL_ROOT_PASSWORD=pass
-      - MYSQL_ROOT_HOST=%
+       - MYSQL_ALLOW_EMPTY_PASSWORD=true
 
   spring-boot:
     build: 
