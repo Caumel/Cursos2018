@@ -68,7 +68,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - 8090:8080
-    restart: always
     volumes:
       - "jar-data:/var/jar"
     depends_on:
