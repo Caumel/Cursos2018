@@ -67,8 +67,6 @@ services:
     ports:
       - 8090:8080
     restart: always
-    volumes_from:
-      - jenkins
     entrypoint: /wait-for-file.sh /var/jar  -- java -jar cursos2018.jar
     volumes:
       - "jar-data:/var/jar"
