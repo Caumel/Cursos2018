@@ -63,6 +63,7 @@ services:
        MYSQL_ROOT_PASSWORD: pass
 
   spring-boot:
+    build: ./app
     ports:
       - 8090:8080
     restart: always
