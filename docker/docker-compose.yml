@@ -63,7 +63,6 @@ services:
        MYSQL_ROOT_PASSWORD: pass
 
   spring-boot:
-    image: var/jar/cursos2018:latest
     ports:
       - 8090:8080
     restart: always
