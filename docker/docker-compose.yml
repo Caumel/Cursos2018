@@ -64,8 +64,8 @@ services:
 
   spring-boot:
     build: 
-      - context: ./
-      - dockerfile: Dockerfile
+      context: ./
+      dockerfile: Dockerfile
     ports:
       - 8090:8080
     restart: always
