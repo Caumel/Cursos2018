@@ -72,7 +72,7 @@ services:
       - "jar-data:/var/jar"
     depends_on:
       - mysql
-      - /var/jar/cursos2018.jar
+      - jar-data:/var/jar/cursos2018.jar
     environment:
       - DATABASE_HOST=mysql
     networks: 
