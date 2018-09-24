@@ -7,5 +7,5 @@ done
 
 WORKDIR /var/jar
 
-java -jar cursos2018.jar
-rm cursos2018.jar
+CMD java -jar cursos2018.jar
+CMD rm cursos2018.jar
