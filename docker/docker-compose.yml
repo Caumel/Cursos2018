@@ -64,7 +64,7 @@ services:
 
   spring-boot:
     build: .
-    entrypoint: sh -c 'java -jar cursos2018.jar'
+    entrypoint: sh -c './wait-for mysql:3306 -- java -jar cursos2018.jar'
     ports:
       - 8090:8080
     restart: always
@@ -72,7 +72,6 @@ services:
       - "jar-data:/var/jar"
     depends_on:
       - mysql
-      - "jar-data:/var/jar/cursos2018.jar"
     environment:
       - DATABASE_HOST=mysql
     networks: 
