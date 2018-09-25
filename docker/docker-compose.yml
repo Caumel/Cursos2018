@@ -63,8 +63,7 @@ services:
        - MYSQL_ALLOW_EMPTY_PASSWORD=true
 
   spring-boot:
-    build:
-      dockerfile: Dockerfile
+    build: .
     ports:
       - 8090:8080
     restart: always
