@@ -62,17 +62,16 @@ services:
      environment:
        - MYSQL_ALLOW_EMPTY_PASSWORD=true
 
-  spring-boot:
-    build: .
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cursos-back
     ports:
       - 8090:8080
     restart: always
     volumes:
       - "jar-data:/var/jar"
-    depends_on:
-      - mysql
-    environment:
-      - DATABASE_HOST=mysql
     networks: 
       - cursosnetwork 
 
