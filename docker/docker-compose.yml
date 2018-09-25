@@ -32,9 +32,9 @@ services:
 
   jenkins:
     image: jenkins
+    privileged: true
     networks:
       - cursosnetwork
-    privileged: true
     user: root
     ports:
       - 8082:8080
