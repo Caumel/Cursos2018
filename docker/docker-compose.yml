@@ -41,7 +41,7 @@ services:
       - 50000:50000
     container_name: cursos-jenkins
     volumes:
-      - /var/run/docker.sock:/var/run/docker.soc
+      - /var/run/docker.sock:/var/run/docker.sock
       - "jenkins-data:/var/jenkins_home"
       - "jar-data:/var/jar"
     depends_on:
@@ -62,17 +62,19 @@ services:
      environment:
        - MYSQL_ALLOW_EMPTY_PASSWORD=true
 
-  app3:
+  back:
     build:
-      context: .
+      context: ./back
       dockerfile: Dockerfile
     container_name: cursos-back
+    restart: always
     ports:
       - 8090:8080
-    restart: always
     volumes:
+      #- "./back/data:/var/script" #La carpeta back/data ahora es var/script del contenedor back
       - "jar-data:/var/jar"
     networks: 
       - cursosnetwork 
+
 
     
