@@ -62,7 +62,7 @@ services:
      environment:
        - MYSQL_ALLOW_EMPTY_PASSWORD=true
 
-  app:
+  app3:
     build:
       context: .
       dockerfile: Dockerfile
