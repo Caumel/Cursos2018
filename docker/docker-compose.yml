@@ -31,7 +31,9 @@ services:
     container_name: sonarqube
 
   jenkins:
-    image: jenkins
+    build:
+      context: ./
+      dockerfile: Dockerfile
     privileged: true
     networks:
       - cursosnetwork

@@ -1,0 +1,7 @@
+package deploy:deploy -s settings.xml
+
+cp target/cursos2018-*.jar /var/jar/cursos2018.jar
+docker restart cursos-back
+
+export JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk
+/var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/Maven3.5.4/bin/mvn clean install sonar:sonar deploy:deploy -s settings.xml
