@@ -31,8 +31,8 @@ export default{
         hours:this.hours,
         level:this.level
       })
-      .then(response => {
-        console.log(response);
+      .then(() => {
+        location.reload();
       })
       .catch(e => {
         this.errors.push(e)
