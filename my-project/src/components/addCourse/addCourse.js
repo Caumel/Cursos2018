@@ -15,7 +15,7 @@ export default{
   },
   mounted () {
     axios
-      .get('http://localhost:8080/teachers')
+      .get('http://localhost:8090/teachers')
       .then(response => this.teachers = response.data)
       .catch(e => {
         this.errors.push(e)
@@ -23,7 +23,7 @@ export default{
   },
   methods:{
     postCourse:function(){
-      axios.post(`http://localhost:8080/courses`, {
+      axios.post(`http://localhost:8090/courses`, {
         id:1,
         active:this.active,
         idTeacher:this.selected,

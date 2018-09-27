@@ -14,7 +14,7 @@ export default {
   },
   mounted () {
     axios
-      .get('http://localhost:8080/courses')
+      .get('http://localhost:8090/courses')
       .then(response => {
         this.courses = response.data
         if (this.courses.length % this.pageSize > 0) this.pages = Math.trunc(this.courses.length/this.pageSize)+1;

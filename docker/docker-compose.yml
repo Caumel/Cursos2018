@@ -47,6 +47,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - "jenkins-data:/var/jenkins_home"
       - "jar-data:/var/jar"
+      - "vuejs-data:/var/jenkins_home/workspace/cursos/my-project/share"
     depends_on:
       - sonarqube
 
@@ -79,14 +80,18 @@ services:
       - cursosnetwork 
 
   front:
-    build:
-      context: ./front
-      dockerfile: Dockerfile
+    image: nginx
+    #build:
+     # context: ./front
+      #dockerfile: Dockerfile
     container_name: cursos-front
     ports:
-      - 4200:4200
+          - 80:80
+          - 443:443
     networks: 
       - cursosnetwork 
+    volumes:
+      - "vuejs-data:/usr/share/nginx/html"
 
 
 
