@@ -9,6 +9,7 @@ volumes:
   jenkins-data:
   db-data:
   jar-data:
+  vuejs-data:
 
 services:
   nexus:
@@ -32,7 +33,7 @@ services:
 
   jenkins:
     build:
-      context: ./
+      context: ./jenkins
       dockerfile: Dockerfile
     privileged: true
     networks:
@@ -76,6 +77,17 @@ services:
       - "jar-data:/var/jar"
     networks: 
       - cursosnetwork 
+
+  front:
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    container_name: cursos-front
+    ports:
+      - 4200:4200
+    networks: 
+      - cursosnetwork 
+
 
 
     
