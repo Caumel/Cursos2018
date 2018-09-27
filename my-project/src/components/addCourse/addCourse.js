@@ -31,7 +31,9 @@ export default{
         hours:this.hours,
         level:this.level
       })
-      .then(response => this.error = response.data)
+      .then(response => {
+        console.log(response);
+      })
       .catch(e => {
         this.errors.push(e)
       })

@@ -34,7 +34,7 @@
                 <input type="number" name="hours" id="hours" v-model="hours">
             </p>
             <p>
-                <input v-on:click="postCourse()" type="submit" value="Añadir curso">  
+                <input v-on:click="postCourse()" type="button" value="Añadir curso">  
             </p>
             {{active}}
             {{selected}}
