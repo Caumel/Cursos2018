@@ -8,4 +8,5 @@ public interface CourseService {
     List<Course> getAll();
     Course getCourse(int id);
     boolean insertCourse(Course course);
+    void deleteCourse(int id);
 }

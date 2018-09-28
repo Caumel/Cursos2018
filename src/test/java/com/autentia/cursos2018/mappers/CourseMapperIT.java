@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.TestConfiguration;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,14 +13,13 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.*;
 
 import static org.hamcrest.CoreMatchers.equalTo;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
 @TestPropertySource("classpath:application-test.properties")
+@SpringBootTest
+@Transactional
+@Rollback
 public class CourseMapperIT {
 
     @Autowired
@@ -46,7 +45,7 @@ public class CourseMapperIT {
     }
 
     @Test
-    public void WhenIAskedForAllTheCoursesIHaveToReceiveAllTheCourses() {
+    public void whenIAskedForAllTheCoursesIHaveToReceiveAllTheCourses() {
         List<Course> allCourses = new ArrayList<>();
         allCourses.add(new Course(1,true,1,"TDD",5,"Básico"));
         allCourses.add(new Course(2, true, 2,"Angular 1", 5, "Básico"));
@@ -55,5 +54,13 @@ public class CourseMapperIT {
         List<Course> courses = sut.getAll();
 
         assertEquals(allCourses,courses);
+    }
+
+    @Test
+    public void whenITryToDeleteOneCourseItWillDelete() {
+        sut.deleteCourse(1);
+
+        List<Course> courses = sut.getAll();
+        assertTrue(courses.stream().noneMatch(course -> course.getId() == 1));
     }
 }

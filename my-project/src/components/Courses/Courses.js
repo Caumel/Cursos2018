@@ -57,6 +57,15 @@ export default {
       }
       return points;
     }*/
+    deleteCourse:function(s){
+      axios.delete('http://localhost:8090/courses/' + s)
+      .then(() => {
+        location.reload();
+      })
+      .catch(e => {
+        this.errors.push(e)
+      })
+    }
   },
     computed:{
       sortedCourses:function() {

@@ -31,4 +31,9 @@ public class CourseServiceImpl implements CourseService {
     public boolean insertCourse(Course course) {
         return courseMapper.insertCourse(course);
     }
+
+    @Override
+    public void deleteCourse(int id) {
+        courseMapper.deleteCourse(id);
+    }
 }

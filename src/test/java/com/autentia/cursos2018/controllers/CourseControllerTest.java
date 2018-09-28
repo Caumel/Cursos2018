@@ -5,6 +5,7 @@ import com.autentia.cursos2018.model.Course;
 import com.autentia.cursos2018.services.CourseService;
 import com.autentia.cursos2018.services.impl.CourseServiceImpl;
 import org.junit.Test;
+import org.springframework.test.annotation.Rollback;
 
 import java.util.List;
 
@@ -47,5 +48,13 @@ public class CourseControllerTest {
         sut.insertCourse(course);
 
         verify(courseServiceImpl).insertCourse(course);
+    }
+
+    @Rollback
+    @Test
+    public void ifIWantToDeleteACourseThisMethodHaveToCallDeleteCourse() {
+        sut.deleteCourse(1);
+
+        verify(courseServiceImpl).deleteCourse(1);
     }
 }

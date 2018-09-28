@@ -9,6 +9,7 @@
                     <th v-for="column in columns" v-bind:key="column" v-on:click="sort(column)">{{column}}
                         <div class="arrow" v-if="currentSort==column" v-bind:class="currentSortDir=='asc' ? 'arrow_up' : 'arrow_down'">
                         </div></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -17,6 +18,7 @@
                     <th> {{ course.title }} </th>
                     <th> {{ course.level }} </th>
                     <th> {{ course.hours }} </th>
+                    <button id="deleteButton" v-on:click="deleteCourse(course.id)">X</button>
                 </tr>
             </tbody>
         </table>
@@ -30,9 +32,9 @@
         <button id="newCurse"> Nuevo curso </button>  
     </div> 
 </template>
+
 <script src="./Courses.js"></script>
 <style src="./Courses.css"></style>
-
 
 
 

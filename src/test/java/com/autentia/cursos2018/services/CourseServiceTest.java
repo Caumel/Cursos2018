@@ -4,6 +4,7 @@ import com.autentia.cursos2018.mappers.CourseMapper;
 import com.autentia.cursos2018.model.Course;
 import com.autentia.cursos2018.services.impl.CourseServiceImpl;
 import org.junit.Test;
+import org.springframework.test.annotation.Rollback;
 
 import java.util.List;
 
@@ -46,5 +47,12 @@ public class CourseServiceTest {
         sut.insertCourse(course);
 
         verify(courseMapper).insertCourse(course);
+    }
+
+    @Rollback
+    @Test
+    public void ifIWantToDeleteACourseThisMethodHaveToCallDeleteCourse() {
+        sut.deleteCourse(1);
+        verify(courseMapper).deleteCourse(1);
     }
 }

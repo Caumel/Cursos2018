@@ -39,4 +39,11 @@ public class CourseController {
         return courseServiceImpl.getCourse(id);
     }
 
+    @DELETE
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public void deleteCourse(@PathParam("id") int id){
+        courseServiceImpl.deleteCourse(id);
+    }
+
 }
